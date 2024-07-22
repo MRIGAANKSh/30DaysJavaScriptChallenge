@@ -1,0 +1,16 @@
+.visible{
+    display: none;
+}
+
+#box1{
+    border: 3px solid black;
+    width: 120px;
+    height: 120px;
+    background-color: coral;
+}
+#box2{
+    border: 3px solid black;
+    width: 120px;
+    height: 120px;
+    background-color: coral;
+}
