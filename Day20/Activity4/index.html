@@ -1,0 +1,118 @@
+<!-- 
+Activity 4: Using SessionStorage
+Task 7: Create a simple form that saves user input (eg., name and email) to
+sessionStorage when submitted. Retrieve and display the saved dta on page load. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the HTML document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings for responsive design -->
+    <title>sessionStorage Form</title> <!-- Title of the web page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Sets the font for the body */
+            margin: 20px; /* Adds margin around the body */
+        }
+        .form-container {
+            max-width: 300px; /* Limits the width of the form container */
+            margin: 0 auto; /* Centers the form container horizontally */
+        }
+        .form-group {
+            margin-bottom: 15px; /* Adds space between form groups */
+        }
+        .form-group label {
+            display: block; /* Makes the label a block element */
+            margin-bottom: 5px; /* Adds space below the label */
+        }
+        .form-group input {
+            width: 100%; /* Makes the input field take full width of the container */
+            padding: 8px; /* Adds padding inside the input field */
+            box-sizing: border-box; /* Includes padding in the element's total width and height */
+        }
+        .form-group button {
+            padding: 10px 15px; /* Adds padding inside the button */
+            background-color: #007BFF; /* Sets background color of the button */
+            color: white; /* Sets text color to white */
+            border: none; /* Removes border from the button */
+            cursor: pointer; /* Changes cursor to pointer on hover */
+        }
+        .form-group button:hover {
+            background-color: #0056b3; /* Changes background color on hover */
+        }
+        .display-data {
+            margin-top: 20px; /* Adds space above the display data section */
+        }
+    </style>
+</head>
+<body>
+    <h1>Session Storage Form</h1>
+
+    <!-- Form for user input -->
+    <div class="form-container">
+        <form id="userForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Section to display saved data -->
+    <div class="display-data" id="displayData"></div>
+
+    <script>
+        // Function to save form data to sessionStorage
+        function saveFormData(event) {
+            event.preventDefault(); // Prevents the form from submitting the traditional way
+
+            // Get values from form inputs
+            const name = document.getElementById('name').value; // Retrieves the name value
+            const email = document.getElementById('email').value; // Retrieves the email value
+
+            // Create an object with the form data
+            const userData = { name, email };
+
+            // Save the object to sessionStorage as a JSON string
+            sessionStorage.setItem('userData', JSON.stringify(userData));
+        }
+
+        // Function to display saved data from sessionStorage
+        function displaySavedData() {
+            // Retrieve the JSON string from sessionStorage
+            const savedData = sessionStorage.getItem('userData');
+            
+            // Check if there is any saved data
+            if (savedData) {
+                // Parse the JSON string back into an object
+                const userData = JSON.parse(savedData);
+
+                // Get the element to display the data
+                const displayData = document.getElementById('displayData');
+                
+                // Set the inner HTML of the displayData element
+                displayData.innerHTML = `
+                    <h3>Saved Data:</h3>
+                    <p><strong>Name:</strong> ${userData.name}</p>
+                    <p><strong>Email:</strong> ${userData.email}</p>
+                `;
+            }
+        }
+
+        // Add an event listener to the form to handle submission
+        document.getElementById('userForm').addEventListener('submit', saveFormData);
+
+        // Add an event listener to display saved data when the page loads
+        window.addEventListener('load', displaySavedData);
+    </script>
+
+</body>
+</html>

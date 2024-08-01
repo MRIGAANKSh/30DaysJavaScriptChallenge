@@ -1,0 +1,30 @@
+<!-- Activity 3: Understanding SessionStorage
+  Task 5: Write a script to save a string value to sessionStorage and retrieve it. Log the retrieved value.
+  -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+  </head>
+  <body>
+    <h1>Session Storage</h1>
+
+    <script>
+        // Define a key and value
+        const key = "mySessionKey";
+        const value = "Hello, sessionStorage!";
+
+        // Save the string value to sessionStorage
+        sessionStorage.setItem(key, value);
+
+        // Retrieve the string value from sessionStorage
+        const retrievedValue = sessionStorage.getItem(key);
+
+        console.log("Retrieved value:", retrievedValue);
+    </script>
+    
+  </body>
+  </html>

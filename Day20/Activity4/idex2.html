@@ -1,0 +1,48 @@
+<!-- Task 8: Write a script to remove an item from sessionStorage. 
+ Log the sessionStorage content before and after removal. -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the HTML document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings for responsive design -->
+    <title>sessionStorage Removal</title> <!-- Title of the web page -->
+</head>
+<body>
+    <h1>Session Storage Content before and after removal</h1>
+
+    <script>
+        // Function to log all items in sessionStorage
+        function logSessionStorage() {
+            console.log('Current sessionStorage content:');
+            // Iterate over all items in sessionStorage
+            for (let i = 0; i < sessionStorage.length; i++) {
+                // Get the key of the current item
+                const key = sessionStorage.key(i);
+                // Get the value associated with the key
+                const value = sessionStorage.getItem(key);
+                // Log the key and value
+                console.log(`${key}: ${value}`);
+            }
+        }
+
+        // Add some items to sessionStorage for demonstration
+        sessionStorage.setItem('item1', 'Value 1'); // Add an item with key 'item1' and value 'Value 1'
+        sessionStorage.setItem('item2', 'Value 2'); // Add an item with key 'item2' and value 'Value 2'
+        sessionStorage.setItem('item3', 'Value 3'); // Add an item with key 'item3' and value 'Value 3'
+
+        // Log sessionStorage content before removal
+        console.log('Before removal:');
+        logSessionStorage(); // Call the function to log current sessionStorage content
+
+        // Remove a specific item from sessionStorage
+        const keyToRemove = 'item2'; // Key of the item to remove
+        sessionStorage.removeItem(keyToRemove); // Remove the item with key 'item2'
+
+        // Log sessionStorage content after removal
+        console.log('After removal:');
+        logSessionStorage(); // Call the function again to log sessionStorage content after removal
+    </script>
+
+</body>
+</html>
