@@ -29,6 +29,7 @@ const api = {
   
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
+   
   
     let weather_el = document.querySelector('.current .weather');
     weather_el.innerText = weather.weather[0].main;
@@ -47,4 +48,9 @@ const api = {
     let year = d.getFullYear();
   
     return `${day} ${date} ${month} ${year}`;
+  }
+  function changetempcolor(temp){
+    if(temo>25){
+      temp.style.color='golden'
+    }
   }

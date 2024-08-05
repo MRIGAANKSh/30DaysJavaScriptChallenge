@@ -5,8 +5,8 @@
   }
   
   body {
-    font-family: 'montserrat', sans-serif;
-    background-image: url('bg.jpg');
+    font-family:cursive;
+    background-image: url('1000_F_636474347_qcg1rsFunnMCSQbqgvnmLKQJdIpMM5En.jpeg');
     background-size: cover;
     background-position: top center;
   }
@@ -31,11 +31,11 @@
     padding: 10px 15px;
     border: none;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(71, 71, 71, 0.3);
     border-radius: 0px 16px 0px 16px;
     border-bottom: 3px solid gray;
   
-    color: #313131;
+    color: #0f0e0e;
     font-size: 20px;
     font-weight: 300;
     transition: 0.2s ease-out;
