@@ -1,1 +1,1 @@
-this is the descriotion of movie search app which i will do afterwards
+this is the movie search project
